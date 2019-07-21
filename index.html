@@ -59,7 +59,10 @@
 </p>
   
     <script>
-     jsPsych.init({timeline: [instru_1, multi_choice_block, multi_choice_block_at, multi_choice_block_ab, instru_2]
+     jsPsych.init({timeline: [instru_1, multi_choice_block, multi_choice_block_at, multi_choice_block_ab, instru_2],
+		   experiment_structure: exp, 
+		   on_finish: function() {
+		   	  jsPsych.data.displayData('csv')}
 		  })
     </script>
 </html>
