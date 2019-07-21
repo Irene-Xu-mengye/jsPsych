@@ -4,96 +4,62 @@
     <head>
         <script src="../../jspsych.js"></script>               
         <script src="../../experiment-instructions.js"></script> 
-        <link rel="stylesheet" href="../../css/jspsych.css">
-    </head>
-    <body>
-    </body>
+        <link rel="stylesheet" href="../../css/jspsych.css"></head>
+    <body></body>
     <script>
-    var trial = {       
-        type: 'instructions',     
-        pages: [      
-        'Welcome to the survey. It will take you around 5 minutes to complete.<br>' +
-        'Your responses will be totally anonymous.<br>'+
-        'Click Next to begin.<br><br>'
-        ],
-        show_clickable_nav: true      
-    };
+    var instru_1 = {type: 'instructions', page: ['Welcome to the survey. It will take you around 5 minutes to complete.<br>' +
+					         'Your responses will be totally anonymous.<br>'+
+					         'Click Next to begin.<br><br>'],
+		    show_clickable_nav: true};
     </script>
-</p>
-    
+</p>   
 <p>
     <head>
-    <script src="../../plugins/jspsych-survey-multi-choice.js"></script> 
-    </head>  
-    <body>
-    </body>
+    <script src="../../plugins/jspsych-survey-multi-choice.js"></script> </head>  
+    <body></body>
     <script>
     var page_1_options = ["Yes", "No"];
-
-    var multi_choice_block_si = {
-    type: 'survey-multi-choice',
-    questions: [
-      {prompt: "1. Have you ever seriously thought about killing yourself?", name: 'Suicidal ideation', options: page_1_options, required:true, horizontal: true}, 
-    ],
-  };
-  var multi_choice_block_at = {
-    type: 'survey-multi-choice',
-    questions: [
-      {prompt: "2. Have you ever attempted to kill yourself?", options: page_1_options, required: true, horizontal: true}
-    ],
-  };
-  var multi_choice_block_ab = {
-    type: 'survey-multi-choice',
-    questions: [
-      {prompt: "3. Have you ever started to take steps to kill yourself and at the last minute <br>" + 
-       "you stopped because you changed your mind? (e.g. You went to the bathroom and took <br>" +
-       "out the pills, but stopped at the last minute.)", options: page_1_options, required: true, horizontal: true}
-    ],
-  };
+    var multi_choice_block_si = {type: 'survey-multi-choice', question: [{prompt: "1. Have you ever seriously thought about killing yourself?", 
+									  name: 'suicidal ideation', options: page_1_options, 
+									  required:true, horizontal: true}]
+				};
+    var multi_choice_block_at = {type: 'survey-multi-choice', questions: [{prompt: "2. Have you ever attempted to kill yourself?", 
+									   name: 'suicide attempt', options: page_1_options, 
+									   required: true, horizontal: true}]
+				};
+    var multi_choice_block_ab = {type: 'survey-multi-choice', 
+				 questions: [{prompt: "3. Have you ever started to take steps to kill yourself and at the last minute <br>" + 
+					      	      "you stopped because you changed your mind? (e.g. You went to the bathroom and took <br>" +
+					      	      "out the pills, but stopped at the last minute.)", 
+					      options: page_1_options, required: true, horizontal: true}]
+				};
     </script>
 </p>
-
 <p>
     <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
     <style>
-        .background{
-            fill: #FFFFFF;
-                    }
-        .band{
-            fill: none;
-            fill-opacity: 0;
-            stroke-opacity: 1;
-            stroke: "ghostwhite";
-            stroke-width: 1px;
-            stroke-dasharray: 5, 5;
-              }
-        .yourpath{
-            fill: "red";
-            stroke: "red";
-            stroke-width: 2px;
-            stroke-dasharray: 2 2;
-                  }
+        .background{fill: #FFFFFF}
+        .band{fill: none; fill-opacity: 0;
+		stroke-opacity: 1; stroke: "ghostwhite"; stroke-width: 1px; stroke-dasharray: 5, 5}
+        .yourpath{fill: "red";
+            	  stroke: "red"; stroke-width: 2px; stroke-dasharray: 2 2;}
     </style>
     </head>
     <body>
 	    <svg/>
     </body>
     <script>
-        var trial = {       
-            type: 'instructions',     
-            pages: [      
-            'From the age you first seriously thought about killing yourself to your current age,<br>' +
-            'draw the line that best describes how intensely these thoughts have been over the years.<br>'
-                   ]};
+    var instru_2 = {type: 'instructions', page: ['From the age you first seriously thought about killing yourself to your current age,<br>' +
+					      'draw the line that best describes how intensely these thoughts have been over the years.<br>']
+		};
     </script>
-<script src=".../youdrawit.js"></script>
-    </p>
+    <script src=".../youdrawit.js"></script>
+</p>
   
     <script>
-     jsPsych.init({
-    timeline: [trial, multi_choice_block, multi_choice_block_at, multi_choice_block_ab]
-    })
+     jsPsych.init({timeline: [instru_1, multi_choice_block, multi_choice_block_at, multi_choice_block_ab, instru_2]
+		  })
     </script>
 </html>
