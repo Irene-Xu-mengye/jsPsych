@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+    <p>
     <head>
-        <script src="../../jspsych.js"></script>
-        <script src="../../plugins/jspsych-instructions.js"></script>
-        <link rel="stylesheet" href="../../css/jspsych.css">
+        <script src="../../jspsych.js"></script>               
+        <script src="../../experiment-instructions.js"></script> 
+        <link rel="stylesheet" href="../../css/jspsych.css"> / * Formatting - to make it look pretty */
     </head>
     <body>
     </body>
@@ -11,18 +12,45 @@
     var trial = {       
         type: 'instructions',     
         pages: [      
-        'Welcome to the experiment. Click next to begin.',      
-        '<div>In this experiment, you will view a ' +       
-        'series of images and answer questions.<br>' +      
-        'Answer with the keys "y" or "n".',     
-        'Here is an example:<br><br> ' +        
-        '<img src="../img/age/of2.jpg"></img><br><br>' +       
-        'Is this person OLD or YOUNG?'      
-        ],        
+        'Welcome to the survey. It will take you around 5 minutes to complete.<br>' +
+        'Your responses will be totally anonymous.<br>'+
+        'Click Next to begin.<br><br>'
+        ],
         show_clickable_nav: true      
-    }       
-    jsPsych.init({      
-        timeline: [trial],        
-    });
+    };
     </script>
+    </p>
+    
+    <p>
+    <head>
+    <script src="../../plugins/jspsych-survey-multi-choice.js"></script> 
+    </head>  
+    <body>
+    </body>
+    <script>
+    var page_1_options = ["Yes", "No"];
+
+    var multi_choice_block_si = {
+    type: 'survey-multi-choice',
+    questions: [
+      {prompt: "1. Have you ever seriously thought about killing yourself?", name: 'Suicidal ideation', options: page_1_options, required:true}, 
+    ],
+  };
+  var multi_choice_block_at = {
+    type: 'survey-multi-choice',
+    questions: [
+      {prompt: "2. Have you ever attempted to kill yourself?", options: page_1_options, required: true, horizontal: true}
+    ],
+  };
+  var multi_choice_block_at = {
+    type: 'survey-multi-choice',
+    questions: [
+      {prompt: "3. Have you ever started to take steps to kill yourself and at the last minute <br>" + 
+       "you stopped because you changed your mind? (e.g. You went to the bathroom and took <br>" +
+       "out the pills, but stopped at the last minute.)", options: page_1_options, required: true, horizontal: true}
+    ],
+  };
+    </script>
+</p>
+
 </html>
