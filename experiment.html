@@ -33,7 +33,7 @@
     var multi_choice_block_si = {
     type: 'survey-multi-choice',
     questions: [
-      {prompt: "1. Have you ever seriously thought about killing yourself?", name: 'Suicidal ideation', options: page_1_options, required:true}, 
+      {prompt: "1. Have you ever seriously thought about killing yourself?", name: 'Suicidal ideation', options: page_1_options, required:true, horizontal: true}, 
     ],
   };
   var multi_choice_block_at = {
@@ -50,7 +50,12 @@
        "out the pills, but stopped at the last minute.)", options: page_1_options, required: true, horizontal: true}
     ],
   };
+
     </script>
 </p>
-
+    <script>
+     jsPsych.init({
+    timeline: [multi_choice_block, multi_choice_block_horizontal]
+    })
+    </script>
 </html>
