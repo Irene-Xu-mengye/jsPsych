@@ -1,5 +1,5 @@
-const w = 300;
-const h = 200;
+const w = 600;
+const h = 400;
 const datalen = 10;
 let svg = d3.select("svg")
   .attr("width",w)
